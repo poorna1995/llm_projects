@@ -1,4 +1,4 @@
 config
 learning
+openai_sdk
 push_notification
-sale_agent
