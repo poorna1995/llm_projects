@@ -1,5 +1,5 @@
 import json
-from config import NAME
+from config import config
 from tools import tools, handle_tool_calls
 from loader import load_resume, load_summary
 from openai import OpenAI
