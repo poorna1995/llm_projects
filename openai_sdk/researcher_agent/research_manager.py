@@ -52,11 +52,11 @@ class ResearchManager:
 
     async def search(self, item: WebSearchItem) -> str | None:
         """ Perform a search for the query """
-        input = f"Search term: {item.query}\nReason for searching: {item.reason}"
+        
         try:
             result = await Runner.run(
                 search_agent,
-                input,
+                item,
             )
             return str(result.final_output)
         except Exception:
