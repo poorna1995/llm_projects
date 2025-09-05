@@ -12,7 +12,7 @@ class PushNotificationTool(BaseTool):
     description: str = (
         "This tools is used to send the push notification to the user"
     )
-    args_schema: Type[BaseModel] = MyCustomToolInput
+    args_schema: Type[BaseModel] = PushNotification
 
     def _run(self, argument: str) -> str:
         pushover_user = os.getenv("PUSHOVER_USER")

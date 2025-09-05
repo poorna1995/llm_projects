@@ -15,19 +15,20 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 
 def run():
     """
-    Run the crew.
+    Run the research crew.
     """
     inputs = {
-        'topic': 'Technology',
-
+        'sector': 'Technology',
+        "current_date": str(datetime.now())
     }
-    
-    try:
-        result = StockPicker().crew().kickoff(inputs=inputs)
-        print(result.raw)
-    except Exception as e:
-        raise Exception(f"An error occurred while running the crew: {e}")
+
+    # Create and run the crew
+    result = StockPicker().crew().kickoff(inputs=inputs)
+
+    # Print the result
+    print("\n\n=== FINAL DECISION ===\n\n")
+    print(result.raw)
 
 
-if __name__ = "__main__":
+if __name__ == "__main__":
     run()
