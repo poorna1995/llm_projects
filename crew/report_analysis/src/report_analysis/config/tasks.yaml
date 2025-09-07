@@ -1,0 +1,34 @@
+data_collection_task:
+  description: >
+    create an intial understanding of the project, it main features and the team working on it,
+     Use the Trello Data Fetcher tool to gather data from the
+    Trello board
+  expected_output: >
+    A full blown report on the project, including its mina features, the team working on it, and any other relevant information from the Trello board.
+  agent: data_collector
+
+data_analysis_task:
+  description: >
+    Analyze the Trello data to identify blockers, delays, and overall progress.
+  expected_output: >
+    A summary of the analysis highlighting key issues, blockers, delays and progress
+  agent: analysis_reporter
+
+report_generation:
+  description: >
+    compile a comprehensive sprint report based in the analysis of the project data.
+    The report should include:
+    - Sprint Overview
+    - Task Summary
+    - Identified Issues and Blockers
+    - Progress and Delays
+    - Team Performance Overview
+    - Action Items and Recommendations
+    - Anything else that is relevant to the project.
+    The report must be formatted in markdown.
+  expected_output: >
+    A detailed sprint report in markdown format that can be presented
+    to the executive team, don't enclose the markdown in any block
+    '```' or '```markdown' or any other code block.
+  agent: reporting_analyst
+  output_file: "output/report-analysis"

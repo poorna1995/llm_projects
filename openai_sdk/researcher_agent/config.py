@@ -46,7 +46,7 @@ WRITER = {
 class ReportData(BaseModel):
     short_summary:str = Field(description = " A short 2-3 summary of the findings")
 
-    markdown)report :str = Field(description = " The final report")
+    markdown_report :str = Field(description = " The final report")
     follow_uo_quesitons : list[str] = Field(description="Suggested topics to research further")
 
 class WebSearchItem(BaseModel):
