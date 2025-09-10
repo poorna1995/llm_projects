@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resume-worker
+  labels:
+    app: resume-worker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resume-worker
+  template:
+    metadata:
+      labels:
+        app: resume-worker
+    spec:
+      containers:
+        - name: worker
+          image: ghcr.io/your-org/resume-worker:latest
+          command: ["python", "/app/worker.py"]
+          resources:
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
+            limits:
+              cpu: "500m"
+              memory: "512Mi"
+
+

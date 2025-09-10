@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resume-ml
+  labels:
+    app: resume-ml
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resume-ml
+  template:
+    metadata:
+      labels:
+        app: resume-ml
+    spec:
+      containers:
+        - name: bento
+          image: ghcr.io/your-org/resume-ml:latest
+          ports:
+            - containerPort: 3000
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 15
+            periodSeconds: 20
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: resume-ml
+spec:
+  selector:
+    app: resume-ml
+  ports:
+    - port: 3000
+      targetPort: 3000
+
+

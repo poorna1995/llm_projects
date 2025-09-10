@@ -1,0 +1,13 @@
+service: "service:svc"
+labels:
+  owner: "resume-optimiser"
+  stage: "dev"
+include:
+  - "service.py"
+python:
+  packages:
+    - bentoml==1.2.18
+    - onnxruntime==1.18.0
+    - numpy==1.26.4
+
+
